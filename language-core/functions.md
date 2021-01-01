@@ -55,15 +55,15 @@ When calling such functions, Julia will pick up the correct one depending from t
 These different versions are named "methods" in Julia and, if the function is type-safe, dispatch is implemented at compile time and very fast.  
 You can inspect the methods of a function with `methods(f)`.
 
-The multiple-dispatch polymorphism is a generalisation of object-oriented run-time polymorphism where the same function name can performs different tasks depending on which is the owner's object's class, i.e. the polymorphism is applied only to a single parameter \(it remains true however that OO languages have usually multiple-parameters polymorphism at compile-time\).
+The multiple-dispatch polymorphism is a generalisation of object-oriented run-time polymorphism where the same function name can perform different tasks depending on which is the owner's object's class, i.e. the polymorphism is applied only to a single parameter \(it remains true however that OO languages have usually multiple-parameters polymorphism at compile-time\).
 
 ## Templates \(type parametrisation\)
 
-Functions can be further specified regarding on which types they works with, using templates:
+Functions can be further specified regarding on which types they work with, using templates:
 
 `myfunction(x::T, y::T2, z::T2) where {T <: Number, T2} = 5x + 5y + 5z`
 
-The above function first defines two types, T \(a subset of Number\) and T2, and then specify each parameter of which of these two types must be.  
+The above function first defines two types, T \(a subset of Number\) and T2, and then specifies each parameter of which of these two types must be.  
 You can call it  with `(1,2,3)` or `(1,2.5,3.5)` as parameter, but not with `(1,2,3.5)` as the definition of `myfunction` constrains that the second and third parameter must be the same type \(whatever it is\).
 
 ## Functions as objects
